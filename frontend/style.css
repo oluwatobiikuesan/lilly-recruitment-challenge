@@ -8,7 +8,7 @@
 /* Body styles. DO NOT REMOVE OR EDIT UNLESS ABSOLUTELY NECESSARY */
 body {
     font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
+    background-color: #f4f5f7;
     padding: 0;
     margin: 0;
     color: #333;
@@ -30,3 +30,169 @@ body {
 }
 
 /* ---- Your custom styles below ---- */
+.center {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+}
+
+header {
+    display: inline-flex;
+    color: black;
+    background-color: white;
+    font-size: small;
+    min-width: 100dvw;
+    place-items: center;
+    padding-inline: 10px;
+}
+
+main {
+    height: 100%;
+    display: grid;
+    place-items: center;
+    align-items: start;
+    margin: 15px;
+    grid-template-areas: "meds meds average" "meds meds create";
+}
+
+.subtitle {
+    color: grey;
+    font-size: small;
+    font-weight: lighter;
+}
+
+.inline_header {
+    display: inline-flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.meds_section {
+    width: 100%;
+    overflow: scroll;
+    scrollbar-width: none;
+    scroll-snap-type: proximity 100;
+    height: 80dvh;
+    padding-inline: 20px;
+    padding-block: 10px;
+    background-color: white;
+    color: black;
+    grid-area: meds;
+}
+
+.meds_section::scrollbar {
+    display: none;
+}
+
+.create_section {
+    grid-area: create;
+    background-color: white;
+    align-self: flex-start;
+}
+
+.create_section form {
+    display: flex;
+    flex-direction: column;
+    margin: 10px;
+    gap: 10px;
+}
+
+.create_section div form input,
+.create_section form button {
+    padding-block: 10px;
+    text-transform: capitalize;
+}
+
+.create_section form label {
+    color: black;
+    font-weight: lighter;
+}
+
+.create_section form button:hover {
+    border: 1px solid black;
+    border-radius: 10px;
+}
+
+.meds_item_container ul {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    column-gap: 10px;
+    row-gap: 10px;
+    list-style: none;
+}
+
+#listing li {
+    border: 0.5px solid lightgray;
+    padding: 10px;
+    background-color: white;
+    border-radius: 10px;
+}
+
+#listing li:hover {
+    transform: scale(1.05);
+}
+
+.item_tab li {
+    cursor: pointer;
+    background-color: white;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    margin: 5px;
+}
+
+.tab_item_operation {
+    padding-top: 40px;
+}
+
+.tab_item_operation button {
+    border-radius: 5px;
+}
+
+.delete {
+    color: white;
+    background-color: red;
+}
+
+.edit {
+    background-color: blue;
+    color: white;
+}
+
+.average_section {
+    display: flex;
+    align-self: center;
+    background-color: white;
+    flex-direction: column;
+    width: 90%;
+    justify-content: center;
+    align-items: center;
+}
+
+.large_text {
+    font-size: 62px;
+}
+
+section {
+    padding: 10px;
+    border-radius: 10px;
+    width: 90%;
+    margin: 0 auto;
+}
+
+button {
+    border: none;
+    padding-block: 5px;
+    padding-inline: 20px;
+    border-radius: 2px;
+    cursor: pointer;
+    transition: 10ms all;
+}
+
+small {
+    color: grey;
+}
+
+input {
+    padding-inline-start: 5px;
+    border: 0.1px thin gray;
+}

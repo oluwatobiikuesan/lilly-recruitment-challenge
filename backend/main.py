@@ -71,6 +71,7 @@ def create_med(name: str = Form(...), price: float = Form(...)):
     Returns:
         dict: A message confirming the medicine was created successfully.
     """
+    print (name)
     with open('data.json', 'r+') as meds:
         current_db = json.load(meds)
         new_med = {"name": name, "price": price}
@@ -125,6 +126,26 @@ def delete_med(name: str = Form(...)):
     return {"error": "Medicine not found"}
 
 # Add your average function here
+@app.get("/average")
+def average_report():
+    """
+    This function calculates the average price of the medicines that are currently
+    availble in the inventory.
+    """
+    with open('data.json', 'r') as meds:
+        get_all_meds = json.load(meds)
+        total = 0.0
+        count = len(get_all_meds['medicines'])
+        for med in get_all_meds['medicines']:
+            if med['price'] is None:
+                continue
+            total += med['price']
+            count += 1
+        avg = total / count if count > 0 else 0
+        print(avg)
+        return avg
+    return {"message": "Agregated"}
+    
 
 if __name__ == "__main__":
     uvicorn.run(app, host="0.0.0.0", port=8000)

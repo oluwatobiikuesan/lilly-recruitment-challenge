@@ -1,21 +1,77 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-    <div class="disclaimer" id="disclaimer">
-        Disclaimer: All medicine names and prices used in this application are fictional and do not represent any real medicine(s).
-    </div>
-    <header>
-        <h1>Medicine Tracker</h1>
-    </header>
-    <main>
 
-    </main>
-    <script src="script.js"></script>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Medicine</title>
+  <link rel="stylesheet" href="style.css" />
+  <script type="module" src="./request.js"></script>
+  <script type="module" src="./action.js"></script>
+  <script type="module" src="./config.js"></script>
+</head>
+
+<body>
+  <div class="disclaimer" id="disclaimer">
+    Disclaimer: All medicine names and prices used in this application are
+    fictional and do not represent any real medicine(s).
+  </div>
+  <header>
+    <h1>Medicine Tracker</h1>
+  </header>
+  <main>
+    <section class="average_section">
+      <h1 class="subtitle">
+        Average Medicine Price
+        </h5>
+        <div class="price_summary" id="avg_price">
+        </div>
+    </section>
+    <!-- main area for listing medicine -->
+    <section class="meds_section">
+      <div class="inline_header">
+        <h5>Medicines Listing</h5>
+        <span>
+          <input id="search_input" type="text" placeholder="Find Medicine" />
+          <button type="button">Find</button>
+        </span>
+      </div>
+      <div class="meds_item_container">
+        <template id="med_template">
+          <div class="tab_item">
+            <li>
+              <b>${item.name}</b>
+              <br>
+              <small>$${item.price}</small>
+              <div class="tab_item_operation">
+                <button id="delete" class="delete">delete</button>
+                <button id="edit" class="edit">edit</button>
+              </div>
+            </li>
+          </div>
+        </template>
+        <ul id="listing">
+        </ul>
+      </div>
+    </section>
+    <!-- create medicine section -->
+    <section class="create_section">
+      <h3>Create New Medicine</h3>
+      <div class="tab_container ">
+        <form role="form" action="./index.html" class="create_form">
+          <label for="name">Name</label>
+          <input name="name" id="meds_name" type="text" placeholder="Medicine name" />
+          <label for="price">Price</label>
+          <input type="number" name="price" id="meds_price" placeholder="0.00" />
+
+          <button type="submit" name="submit" id="add">
+            create medicine
+          </button>
+        </form>
+      </div>
+    </section>
+  </main>
+  <script type="module" src="script.js"></script>
 </body>
+
 </html>
